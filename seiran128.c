@@ -10,7 +10,7 @@ See: https://creativecommons.org/publicdomain/zero/1.0/
 // rotate left (ROL) instruction
 static inline uint64_t rotl(uint64_t x, int k)
 {
-    return (x << k) | (x >> (-k & 0x3F));
+    return (x << k) | (x >> (-k & 0x3f));
 }
 
 static uint64_t state[2];

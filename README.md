@@ -55,7 +55,7 @@ For more details, see `seiran128.c`.
 
 Comparison with major (64 bit output) pseudorandom number generators:
 
-|Name|Period|Size(bytes)|Equidistribution|Jump|Failed Test|Speed(64bit/ns)|
+|Name|Period|Size(bytes)|Equidistribution|Jump|Failed Test|Speed(64-bit/ns)|
 |:---|---:|---:|---:|:---|:---|---:|
 |[`sfc64`](http://pracrand.sourceforge.net/)|> 2^64|32|0|-|-|1.21|
 |👉 `seiran`|2^128 - 1|16|1|✔|-|1.20|
