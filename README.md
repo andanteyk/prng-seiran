@@ -16,7 +16,7 @@ uint64_t next(uint64_t state[2]) {
 }
 ```
 
-For more details, see `seiran.c`.
+For more details, see `seiran128.c`.
 
 ## Pros
 
@@ -31,7 +31,7 @@ For more details, see `seiran.c`.
 	* As with LCG, there is no problem that the lower bits have low randomness.
 1. It is space efficient.
 	* It uses only 128 bits == 16 bytes.
-1. It passes many powerful randomness tests.
+1. It passes many powerful randomness tests.  
 	(In the following, "rev" represents the output bit order reversed, and "std" represents the output as it is.)
 	* [PractRand](http://pracrand.sourceforge.net/) v0.94 expanded extra ( `-tf 2 -te 1` ) 32TB: no anomalies in 2417 test result(s)
 	* [Hamming-weight dependencies](http://prng.di.unimi.it/hwd.php) 1PB: p = 0.581

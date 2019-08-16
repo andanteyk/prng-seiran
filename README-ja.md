@@ -16,7 +16,7 @@ uint64_t next(uint64_t state[2]) {
 }
 ```
 
-詳しくは `seiran.c` を参照すること。
+詳しくは `seiran128.c` を参照すること。
 
 ## 利点
 
@@ -31,7 +31,7 @@ uint64_t next(uint64_t state[2]) {
 	* 線形合同法のように、下位ビットの乱数性が低い問題が存在しない。
 1. 空間利用効率が良い。
 	* 128 bit == 16 byte の内部状態領域のみを用いる。
-1. 多くの強力な乱数性テストにパスする。
+1. 多くの強力な乱数性テストにパスする。  
 	(以下では、rev は出力のビット順を逆転させたもの、std は出力をそのまま用いたものを表す。)
 	* [PractRand](http://pracrand.sourceforge.net/) v0.94 expanded extra ( `-tf 2 -te 1` ) 32TB: no anomalies in 2417 test result(s)
 	* [Hamming-weight dependencies](http://prng.di.unimi.it/hwd.php) 1PB: p = 0.581
