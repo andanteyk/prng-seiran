@@ -1,4 +1,4 @@
-/* Seiran128 v1.0 - pseudorandom number generator
+/* Seiran128 v1 - pseudorandom number generator
 
 To the extent possible under law, the author has waived all copyright 
 and related or neighboring rights to this software.
@@ -15,7 +15,7 @@ static inline uint64_t rotl(uint64_t x, int k)
 
 static uint64_t state[2];
 
-// returns 64-bit pseudorandom value.
+// Returns 64-bit pseudorandom value.
 uint64_t next(void)
 {
     uint64_t s0 = state[0], s1 = state[1];
@@ -109,7 +109,7 @@ int main(void)
             ASSERT(value == outputs[i]);
         }
     }
-    printf("\n");
+    puts("");
 
     PRINTSTATE("jp 0: ");
     ASSERT(state[0] == 0x8B38637963B4B7A0 && state[1] == 0x74A5A5F4B505E908);
@@ -126,5 +126,6 @@ int main(void)
     PRINTSTATE("jp96: ");
     ASSERT(state[0] == 0x77AF4FDC1B861F98 && state[1] == 0x16485EFAC22AE75B);
 
+    puts("succeeded.");
     return 0;
 }

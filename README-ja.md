@@ -1,6 +1,8 @@
-# `seiran` - 高速な擬似乱数生成器
+# `seiran` 擬似乱数生成器
 
 [English version is here.](README.md)
+
+LFSRベースの新しい擬似乱数生成器を提案する。
 
 ## 最小実装 (C言語)
 
@@ -55,20 +57,21 @@ uint64_t next(uint64_t state[2]) {
 
 主要な 64bit 出力の擬似乱数生成器との比較を以下に示す。
 
-|名前|周期|サイズ(byte)|均等分布次元|ジャンプ|失敗するテスト|速度(64bit/ns)|
-|:---|---:|---:|---:|:---|:---|---:|
-|[`sfc64`](http://pracrand.sourceforge.net/)|> 2^64|32|0|-|-|1.21|
-|👉 `seiran`|2^128 - 1|16|1|✔|-|1.20|
-|[`xoroshiro128+`](http://xoshiro.di.unimi.it/xoroshiro128plus.c)|2^128 - 1|16|1|✔|BRank, hwd|1.13|
-|`shioi`|2^128 - 1|16|1|✔|-|1.00|
-|[`xoshiro256**`](http://xoshiro.di.unimi.it/xoshiro256starstar.c)|2^256 - 1|32|4|✔|-|0.99|
-|[`lehmer128`](https://web.archive.org/web/20180609040734/http://xoshiro.di.unimi.it/lehmer128.c) (線形合同法)|2^126|16|1|✔|TMFn|0.74|
-|[`splitmix`](http://xoshiro.di.unimi.it/splitmix64.c)|2^64|8|1|✔|-|0.68|
-|[`pcg64_xsh_rr`](http://www.pcg-random.org/)|2^128|16|1|✔|-|0.38|
-|[`mt19937_64`](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/VERSIONS/C-LANG/mt19937-64.c) (Mersenne Twister)|2^19937 - 1|2500|311|✔ (低速)|BRank|0.32|
-|[`tinymt64`](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/TINYMT/index-jp.html)|2^127 - 1|16|1|✔|BRank, hwd|0.24|
+|名前|周期|サイズ(byte)|均等分布次元|失敗するテスト|速度(64bit/ns)|
+|:---|---:|---:|---:|:---|---:|
+|[`sfc64`](http://pracrand.sourceforge.net/)|> 2^64|32|0|-|1.21|
+|👉 `seiran128`|2^128 - 1|16|1|-|1.20|
+|[`xoroshiro128+`](http://xoshiro.di.unimi.it/xoroshiro128plus.c)|2^128 - 1|16|1|BRank, hwd|1.13|
+|[`shioi128`](https://github.com/andanteyk/prng-shioi)|2^128 - 1|16|1|-|1.00|
+|[`xoshiro256**`](http://xoshiro.di.unimi.it/xoshiro256starstar.c)|2^256 - 1|32|4|-|0.99|
+|[`lehmer128`](https://web.archive.org/web/20180609040734/http://xoshiro.di.unimi.it/lehmer128.c) (線形合同法)|2^126|16|1|TMFn|0.74|
+|[`splitmix`](http://xoshiro.di.unimi.it/splitmix64.c)|2^64|8|1|-|0.68|
+|[`pcg64_xsh_rr`](http://www.pcg-random.org/)|2^128|16|1|-|0.38|
+|[`mt19937_64`](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/VERSIONS/C-LANG/mt19937-64.c) (Mersenne Twister)|2^19937 - 1|2500|311|BRank|0.32|
+|[`tinymt64`](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/TINYMT/index-jp.html)|2^127 - 1|16|1|BRank, hwd|0.24|
 
-速度測定では [xoshiro/xoroshiro で用いられたハーネス](http://xoshiro.di.unimi.it/harness.c) を使用し、`Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz / gcc 7.3.0` 環境下で実施した。
+速度測定では [xoshiro/xoroshiro で用いられたハーネス](http://xoshiro.di.unimi.it/harness.c) を使用し、`Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz / gcc 7.3.0` 環境下で実施した。  
+環境や状況によって速度は異なる可能性がある。
 
 ## ライセンス
 [Public Domain (CC0)](https://creativecommons.org/publicdomain/zero/1.0/)
