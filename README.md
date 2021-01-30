@@ -23,7 +23,7 @@ For more details, see `seiran128.c`.
 ## Pros
 
 1. It is fast in 64-bit environment.
-	* About 3.7 times faster than Mersenne Twister(64 bit version).
+	* About 3.7 times faster than Mersenne Twister(64-bit version).
 1. It is portable and easy to implement.
 	* It does not use environment / language dependent instructions such as 128 bit multiplication.
 1. Its period is 2^128 - 1, which is mathematically provable.
@@ -72,6 +72,10 @@ Comparison with major (64 bit output) pseudorandom number generators:
 
 [Harness used in xoshiro/xoroshiro](http://xoshiro.di.unimi.it/harness.c) was used for speed measurement. The measurement environment is `Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz / gcc 7.3.0`.  
 The speed may vary depending on the environment and circumstances.
+
+## Implementation in other languages
+
+* [C# (.NET 5)](https://gist.github.com/andanteyk/971f8fb5d2aa55f2d685413368d02078)
 
 ## License
 

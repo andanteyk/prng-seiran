@@ -2,7 +2,7 @@
 
 [English version is here.](README.md)
 
-LFSRベースの新しい擬似乱数生成器を提案する。
+LFSR ベースの新しい擬似乱数生成器を提案する。
 
 ## 最小実装 (C言語)
 
@@ -72,6 +72,10 @@ uint64_t next(uint64_t state[2]) {
 
 速度測定では [xoshiro/xoroshiro で用いられたハーネス](http://xoshiro.di.unimi.it/harness.c) を使用し、`Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz / gcc 7.3.0` 環境下で実施した。  
 環境や状況によって速度は異なる可能性がある。
+
+## その他の言語における実装
+
+* [C# (.NET 5)](https://gist.github.com/andanteyk/971f8fb5d2aa55f2d685413368d02078)
 
 ## ライセンス
 [Public Domain (CC0)](https://creativecommons.org/publicdomain/zero/1.0/)
